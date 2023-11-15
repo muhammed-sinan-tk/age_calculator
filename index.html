@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="card">
+        <div class="card-info">
+            <div class="age">
+                <h3>Age Calculator</h3>
+            </div>
+
+            <div class="input-info">
+                <div>
+                    <label for="day">day <br></label>
+                    <input type="number" id="day" placeholder="date">
+                </div>
+                <div>
+                    <label for="month">Month <br></label>
+                    <input type="number" id="month" placeholder="month">
+                </div>
+                <div>
+                    <label for="year">Year <br></label>
+                    <input type="number" id="year" placeholder="year">
+                </div>
+            </div>
+            <div class="cr">
+                <button onclick="ages()">Submit</button>
+            </div>
+            <br>
+            <div id="age">
+                <span id="span">
+                    <h1 id="day_1"></h1>
+                    <h1 id="month_1"></h1>
+                    <h1 id="year_1"></h1>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function ages() {
+
+            let d1 = parseInt(document.getElementById("day").value);
+            let m1 = parseInt(document.getElementById("month").value);
+            let y1 = parseInt(document.getElementById("year").value);
+
+            let day = new Date();
+            let d2 = day.getDate();
+            let m2 = 1 + day.getMonth();
+            let y2 = day.getFullYear();
+
+            if (d1 > d2) {
+                m2 -= 1;
+                d2 += month[m2 - 1];
+            }
+
+            if (m1 > m2) {
+                y2 -= 1;
+                m2 += 12;
+            }
+
+            let d = d2 - d1;
+            let m = m2 - m1;
+            let y = y2 - y1;
+            3
+
+            document.getElementById("age").innerHTML = "Your age is " + y + " years " + m + " months " + d + " days";
+        }
+
+    </script>
+</body>
+
+</html>
